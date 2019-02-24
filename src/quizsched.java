@@ -164,6 +164,12 @@ private static void readInputSave(Scanner sc, String courseID) /* CLI */
 // ===============================================================
 /* CLI: Dropped parameter "out", now we print to screen */
 // Print the quiz retake choices (maybe should also change the method name?)
+/*
+ * There were two changes to this method:
+ * - Changed this method from private to package-private. This adresses controllability by allowing us to isolate the invocation of this method in the tests.
+ * - Added the "LocalDate today" parameter, replacing the declaration of this variable inside the method. This uses dependency injection to address controllability,
+ * 		allowing us to pass in our own date for today and thereby making the tests consistent.
+ */
 static void printQuizScheduleForm(quizzes quizList, retakes retakesList, courseBean course, LocalDate today)
 {
    // Check for a week to skip

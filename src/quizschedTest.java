@@ -3,29 +3,24 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import junit.framework.Assert;
-
-class quizschedTest {
-
+class quizschedTest {	
 	/*
-	 * quizsched.printQuizScheduleForm() has the following inputs:
-	 * quizList, built from quiz-orig-swe437.txt
-	 * retakesList, built from quiz-retakes-swe437.xml
-	 * course, built from course-swe437.xml
-	 * today, added by me for dependency injection to allow control of the date in these tests
+	 * (Copied for convenience from quizsched.java:
+	 * 
+	 * There were two changes to the printQuizScheduleForm() method:
+	 * - Changed this method from private to package-private. This adresses controllability by allowing us to isolate the invocation of this method in the tests.
+	 * - Added the "LocalDate today" parameter, replacing the declaration of this variable inside the method. This uses dependency injection to address controllability,
+	 * 		allowing us to pass in our own date for today and thereby making the tests consistent.
 	 */
 	
 	PrintStream consoleOut = System.out;
@@ -49,12 +44,12 @@ class quizschedTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		//Get the console output
+		//Get the console output. This addresses observability by allowing us to get the output that would be sent to console.
 		baos = new ByteArrayOutputStream();
 		ps = new PrintStream(baos, true, "UTF-8");
 		System.setOut(ps);
 		
-		//Set up parameters
+		//Set up parameters. This leverages the change we made in making the method package-private for increased controllability.
 		quizList = new quizzes();
 		quizList.addQuiz(new quizBean(1, 2, 10, 10, 30));
 		quizList.addQuiz(new quizBean(2, 2, 11, 10, 30));
@@ -230,6 +225,8 @@ class quizschedTest {
 	/**
 	 * Gets the output that would have been sent to console as a string.
 	 * Also prints it to the console for debugging purposes.
+	 * 
+	 * This addresses observability by allowing us to get the output that would be sent to console.
 	 */
 	private String getOutput() {
 		System.setOut(consoleOut);
