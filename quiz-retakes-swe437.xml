@@ -68,4 +68,35 @@
       <minute>00</minute> <!--  0-59 -->
     </dateGiven>
   </retake>
+
+<retake>
+<id>7</id>
+<location>EB 4430</location>
+<dateGiven>
+<month>3</month>
+<day>10</day>
+<hour>12</hour>
+<minute>30</minute>
+</dateGiven>
+</retake>
+<retake>
+<id>8</id>
+<location>EB 4430</location>
+<dateGiven>
+<month>3</month>
+<day>10</day>
+<hour>12</hour>
+<minute>30</minute>
+</dateGiven>
+</retake>
+<retake>
+<id>9</id>
+<location>EB 4430</location>
+<dateGiven>
+<month>3</month>
+<day>21</day>
+<hour>14</hour>
+<minute>30</minute>
+</dateGiven>
+</retake>
 </retakes>

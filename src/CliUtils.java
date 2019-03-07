@@ -15,6 +15,21 @@ public class CliUtils {
 		} while (answer == null || answer.isEmpty());
 		return answer;
 	}
+	
+	static int askInt(String message, Scanner in) {
+		int answer = 0;
+		boolean invalid = false;
+		do {
+			invalid = false;
+			System.out.println(message);
+			try {
+				answer = in.nextInt();
+			} catch(Exception e) {
+				invalid = true;
+			}
+		} while (invalid);
+		return answer;
+	}
 
 	static void print(Object... things) {
 		if (things.length == 0) {

@@ -44,5 +44,9 @@ public class retakes implements Iterable<retakeBean> {
 	public String toString() {
 		return (Arrays.toString(retakes.toArray()));
 	}
+	
+	public int size() {
+		return retakes.size();
+	}
 
 }

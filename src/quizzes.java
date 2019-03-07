@@ -45,5 +45,9 @@ public class quizzes implements Iterable<quizBean> {
 	public String toString() {
 		return (Arrays.toString(quizzes.toArray()));
 	}
+	
+	public int size() {
+		return quizzes.size();
+	}
 
 }
